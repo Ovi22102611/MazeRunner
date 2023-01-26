@@ -16,7 +16,7 @@ public class SpeedUpcheese extends Actor
     
     public SpeedUpcheese()
     {
-       getImage().scale(getImage().getWidth()/3, getImage().getHeight()/3);
+       getImage().scale(getImage().getWidth()/3, getImage().getHeight()/3); //setting up the size
     }
     public void act()
     {

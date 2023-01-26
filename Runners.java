@@ -12,26 +12,30 @@ public class Runners extends Actor
      * Act - do whatever the Runners wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    
+    int speed = 4; //setting up the speed at the beginning 
     
     public void act()
     {
     
     }
     
+    
+    
+    
+    
     public void SlideMove()
     {
         int x = getX();
         int y = getY();
-        int speed = 4;
+        
      if(Greenfoot.isKeyDown("Right"))
      {
-         setLocation(x+speed,y);
+         setLocation(x+speed,y); //set location method allows to get the exact position(x,y) of the runner
          if(hitBarriers())
          {
           setLocation(x-speed, y);
          }
-    
+          
      }
 
      if(Greenfoot.isKeyDown("Left"))
@@ -41,7 +45,7 @@ public class Runners extends Actor
          {
           setLocation(x+speed, y);
          }
-    
+         
      }
      
      if(Greenfoot.isKeyDown("Up"))
@@ -51,7 +55,7 @@ public class Runners extends Actor
          {
           setLocation(x, y+speed);
          }
-    
+          
      }
      
      if(Greenfoot.isKeyDown("Down"))
@@ -61,11 +65,11 @@ public class Runners extends Actor
          {
           setLocation(x, y-speed);
          }
-    
+          
      }
     }
     
-    public boolean hitBarriers()
+    public boolean hitBarriers() //return type method
     {
     if(
     isTouching(MazeBarrier.class))
@@ -78,10 +82,38 @@ public class Runners extends Actor
        return false  ;
      }
     }
-
+    
+    public void collectcheese()
+     {
+    if(
+        isTouching(SpeedUpcheese.class))
+        {
+        speed= speed+1;
+     
+       removeTouching(SpeedUpcheese.class);
+    }
 
     }
-    
+    public void maxspeed()
+    {
+    if(speed>7)
+    {
+    speed=7;
+    }
+    }
+     public boolean hitenemy()
+    {
+    if (isTouching(Enimies.class))
+    {
+        return true;
+    }
+     else
+    {
+    return false;
+    }
+}
+    }
+  
     
     
  
